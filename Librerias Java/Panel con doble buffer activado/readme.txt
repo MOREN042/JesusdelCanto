@@ -1,0 +1,1 @@
+Esta clase hereda de JPanel y crea un Panel con el doble búfer activado para el correcto funcionamiento de gráficos en movimiento.

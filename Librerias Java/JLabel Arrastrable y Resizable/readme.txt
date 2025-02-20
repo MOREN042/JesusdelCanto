@@ -1,0 +1,1 @@
+Este componente hereda de JLabel y permite el drag and drop, cambiar el tamaño en horizontal y gestiona las colisiones entre ellos.
