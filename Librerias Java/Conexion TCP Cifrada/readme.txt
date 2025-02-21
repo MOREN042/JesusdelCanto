@@ -1,0 +1,1 @@
+Librería que implementa un servidor TCP con recepción y envío cifrado y otra para el cliente. Requieren la librería cifrarMensaje.
