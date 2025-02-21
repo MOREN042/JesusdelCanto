@@ -85,8 +85,9 @@ public class CifrarMensaje {
         
         Cipher descifrado= Cipher.getInstance("AES");
         descifrado.init(Cipher.DECRYPT_MODE, clave);
-        byte[] mensajeDesencriptado= descifrado.doFinal(mensaje.getBytes());
-        return String.valueOf(mensajeDesencriptado);
+        byte[] mensajeBytes=Base64.getDecoder().decode(mensaje);
+        byte[] mensajeDesencriptado= descifrado.doFinal(mensajeBytes);
+        return new String(mensajeDesencriptado,StandardCharsets.UTF_8);
     }
     
     //método para desencriptar mensaje con un String
@@ -96,7 +97,8 @@ public class CifrarMensaje {
         clave=generarClave(claveString);
         Cipher descifrado= Cipher.getInstance("AES");
         descifrado.init(Cipher.DECRYPT_MODE, clave);
-        byte[] mensajeDesencriptado= descifrado.doFinal(mensaje.getBytes());
-        return String.valueOf(mensajeDesencriptado);
+        byte[] mensajeBytes=Base64.getDecoder().decode(mensaje);
+        byte[] mensajeDesencriptado= descifrado.doFinal(mensajeBytes);
+        return new String(mensajeDesencriptado,StandardCharsets.UTF_8);
     }
 }
