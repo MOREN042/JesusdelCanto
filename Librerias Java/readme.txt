@@ -1,0 +1,1 @@
+Repositorio con distintas librerías básicas en Java. Se incluye el archivo jar y el archivo java para poder ver el código original. En los archivos readme.txt se incluye la explicación y los métodos que se pueden utilizar.
