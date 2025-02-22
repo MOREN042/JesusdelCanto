@@ -31,17 +31,21 @@ public class ServidorTCP {
                 CifrarMensaje cifrado = new CifrarMensaje();
                 SecretKey clave=cifrado.generarClave(StringKey);
                 String peticionCliente = cifrado.descifrar(mensaje, clave);
-                System.out.println("Mensaje desencriptado: "+peticionCliente);
                 
-                // Encripto la respuesta
+                //Aquí podríamos lanzar la clase de tipo thread que queremos que resuelva la petición del cliente, o filtrar las peticiones para lanzar distintas clases.
                 
-                String respuesta = "Mensaje recibido correctamente";
-                String respuestaCifrada= cifrado.cifrar(respuesta, clave);
+                    System.out.println("Mensaje desencriptado: "+peticionCliente);
                 
-                // Envío la respuesta encriptada
-                PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
-                salida.println(respuestaCifrada);
+                    // Encripto la respuesta
+                    for (int i=0; i<10; i++){
+                        String respuesta = "Respuesta nº "+i+" -- Mensaje recibido correctamente";
+                        String respuestaCifrada= cifrado.cifrar(respuesta, clave);
 
+                        // Envío la respuesta encriptada
+                        PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
+                        salida.println(respuestaCifrada);
+
+                    }
                 // Cerrar conexión con el cliente
                 socket.close();
             }
